@@ -65,6 +65,7 @@ const ExamPartsSection: React.FC = () => {
       duration: "25 Minuten",
       weight: "40%",
       difficulty: "Mittel",
+      badge: { text: "Teil 1", color: "blue" as const },
       features: [
         "Anamnestische Befragung",
         "Symptombeschreibung verstehen",
@@ -94,6 +95,7 @@ const ExamPartsSection: React.FC = () => {
       duration: "30 Minuten",
       weight: "35%",
       difficulty: "Hoch",
+      badge: { text: "Teil 2", color: "green" as const },
       features: [
         "Befundberichte schreiben",
         "Behandlungsprotokolle erstellen",
@@ -119,6 +121,7 @@ const ExamPartsSection: React.FC = () => {
       duration: "20 Minuten",
       weight: "25%",
       difficulty: "Mittel",
+      badge: { text: "Teil 3", color: "purple" as const },
       features: [
         "Fachliche Diskussionen führen",
         "Fallbesprechungen moderieren",
@@ -148,6 +151,7 @@ const ExamPartsSection: React.FC = () => {
       duration: "75 Minuten",
       weight: "100%",
       difficulty: "Sehr Hoch",
+      badge: { text: "Vollprüfung", color: "indigo" as const },
       features: [
         "Komplette Prüfungssimulation",
         "Alle drei Prüfungsteile integriert",
@@ -216,16 +220,19 @@ const ExamPartsSection: React.FC = () => {
               <span className="text-lg font-bold text-slate-700 dark:text-slate-200">{part.part}</span>
             </div>
 
-            {/* Difficulty Badge */}
-            <div className="absolute top-4 left-4">
-              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                part.difficulty === 'Hoch' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' :
-                part.difficulty === 'Mittel' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300' :
-                'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
-              }`}>
-                {part.difficulty}
-              </span>
-            </div>
+            {/* Badge */}
+            {part.badge && (
+              <div className="absolute top-4 left-4">
+                <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                  part.badge.color === 'red' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' :
+                  part.badge.color === 'yellow' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300' :
+                  part.badge.color === 'indigo' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' :
+                  'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+                }`}>
+                  {part.badge.text}
+                </span>
+              </div>
+            )}
 
             <CardHeader className="text-center pb-6 pt-16">
               <div className={`mx-auto w-20 h-20 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg ${
