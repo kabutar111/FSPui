@@ -322,47 +322,6 @@ const ExamPartsSection: React.FC = () => {
         ))}
       </div>
 
-      {/* Success Metrics Section */}
-      <div className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-8 mb-16 border border-slate-200/50 dark:border-slate-700/50">
-        <div className="text-center mb-8">
-          <h3 className={`${classes.typography.h2} ${classes.text.primary} mb-4`}>
-            Ihre Erfolgsaussichten maximieren
-          </h3>
-          <p className={`${classes.typography.bodyLarge} ${classes.text.secondary}`}>
-            Mit unseren FSP-Agenten erreichen unsere Teilnehmer durchschnittlich:
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">85%</div>
-            <p className={`${classes.typography.bodyMedium} ${classes.text.primary} font-medium mb-1`}>
-              Erfolgsquote beim ersten Versuch
-            </p>
-            <p className={`${classes.typography.bodySmall} ${classes.text.tertiary}`}>
-              Durch intensives Teil-Training
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">92%</div>
-            <p className={`${classes.typography.bodyMedium} ${classes.text.primary} font-medium mb-1`}>
-              Verbesserung der Fachsprache
-            </p>
-            <p className={`${classes.typography.bodySmall} ${classes.text.tertiary}`}>
-              Durch gezieltes Vokabular-Training
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">78%</div>
-            <p className={`${classes.typography.bodyMedium} ${classes.text.primary} font-medium mb-1`}>
-              Mehr Selbstvertrauen
-            </p>
-            <p className={`${classes.typography.bodySmall} ${classes.text.tertiary}`}>
-              Durch realistische Prüfungssimulationen
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* Bottom CTA Section */}
       <div className="text-center">
