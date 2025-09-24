@@ -161,7 +161,6 @@ const ExamPartsSection: React.FC = () => {
       skills: [
         "Prüfungsstress-Management",
         "Zeitliche Koordination",
-        "Integrierte Kommunikationsfähigkeiten",
         "Professionelle Gesamtkompetenz",
         "Adaptive Lernstrategien"
       ],
