@@ -8,7 +8,7 @@ import { theme, classes } from '../../lib/theme';
 const ExamPartsSection: React.FC = () => {
   const [dialogState, setDialogState] = useState<{
     isOpen: boolean;
-    examPart: 'teil1' | 'teil2' | 'teil3' | null;
+    examPart: 'teil1' | 'teil2' | 'teil3' | 'vollprufung' | null;
     title: string;
     description: string;
   }>({
@@ -19,7 +19,7 @@ const ExamPartsSection: React.FC = () => {
   });
 
   const handleOpenDialog = (part: string, title: string, description: string) => {
-    let examPart: 'teil1' | 'teil2' | 'teil3';
+    let examPart: 'teil1' | 'teil2' | 'teil3' | 'vollprufung';
     switch (part) {
       case 'Teil 1':
         examPart = 'teil1';
@@ -29,6 +29,9 @@ const ExamPartsSection: React.FC = () => {
         break;
       case 'Teil 3':
         examPart = 'teil3';
+        break;
+      case 'Vollprüfung':
+        examPart = 'vollprufung';
         break;
       default:
         examPart = 'teil1';
@@ -104,11 +107,7 @@ const ExamPartsSection: React.FC = () => {
         "Strukturierte Dokumentation",
         "Fachliche Genauigkeit"
       ],
-      sampleScenarios: [
-        "OP-Bericht verfassen",
-        "Entlassungsbrief schreiben",
-        "Laborbefunde interpretieren"
-      ]
+      sampleScenarios: []
     },
     {
       part: "Teil 3",
@@ -137,6 +136,36 @@ const ExamPartsSection: React.FC = () => {
         "Therapieoptionen besprechen",
         "Überweisungen koordinieren",
         "Interdisziplinäre Fallbesprechungen"
+      ]
+    },
+    {
+      part: "Vollprüfung",
+      title: "Komplette FSP-Prüfungssimulation",
+      subtitle: "Realistische Gesamtprüfung",
+      description: "Erleben Sie die vollständige FSP-Prüfung mit allen drei Teilen in einer durchgängigen Simulation. Dieser Agent führt Sie durch Patientengespräche, medizinische Dokumentation und kollegiale Kommunikation.",
+      icon: GraduationCap,
+      colorScheme: 'indigo' as const,
+      duration: "75 Minuten",
+      weight: "100%",
+      difficulty: "Sehr Hoch",
+      features: [
+        "Komplette Prüfungssimulation",
+        "Alle drei Prüfungsteile integriert",
+        "Zeitmanagement-Training",
+        "Realistische Prüfungsatmosphäre",
+        "Umfassendes Leistungsfeedback"
+      ],
+      skills: [
+        "Prüfungsstress-Management",
+        "Zeitliche Koordination",
+        "Integrierte Kommunikationsfähigkeiten",
+        "Professionelle Gesamtkompetenz",
+        "Adaptive Lernstrategien"
+      ],
+      sampleScenarios: [
+        "Vollständige Patientenversorgung",
+        "Komplexe Fallbearbeitung",
+        "Interdisziplinäre Zusammenarbeit"
       ]
     }
   ];
@@ -179,7 +208,7 @@ const ExamPartsSection: React.FC = () => {
       </div>
 
       {/* Exam Parts Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
         {examParts.map((part, index) => (
           <Card key={index} className={`${classes.card.glass} group hover:shadow-2xl transition-all duration-500 border-0 relative overflow-hidden`}>
             {/* Part Number Badge */}
@@ -264,21 +293,6 @@ const ExamPartsSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Sample Scenarios */}
-              <div className="space-y-3">
-                <h4 className={`${classes.typography.label} ${classes.text.secondary} flex items-center gap-2`}>
-                  <AlertCircle className="w-4 h-4" />
-                  Beispielszenarien:
-                </h4>
-                <ul className="space-y-1">
-                  {part.sampleScenarios.map((scenario, scenarioIndex) => (
-                    <li key={scenarioIndex} className={`flex items-center gap-2 ${classes.typography.bodySmall} ${classes.text.tertiary}`}>
-                      <div className="w-1 h-1 bg-current rounded-full flex-shrink-0 ml-2" />
-                      {scenario}
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
               {/* CTA Button */}
               <div className="pt-4">
