@@ -4,7 +4,7 @@ import { X, MessageSquare, FileText, Users, GraduationCap, Send, Mic, MicOff } f
 interface AgentDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  examPart: 'teil1' | 'teil2' | 'teil3' | 'vollprufung';
+  examPart: 'teil1' | 'teil2' | 'teil3' | 'prufung';
   title: string;
   description: string;
 }
@@ -40,7 +40,7 @@ const AgentDialog: React.FC<AgentDialogProps> = ({
           case 'teil3':
             agentResponse = 'Als Kollege würde ich vorschlagen, dass wir die Therapieoptionen gemeinsam besprechen.';
             break;
-          case 'vollprufung':
+          case 'prufung':
             agentResponse = 'Willkommen zur kompletten FSP-Prüfungssimulation! Wir beginnen mit Teil 1: Anamnese & Patientengespräche. Wie kann ich Ihnen als Patient helfen?';
             break;
         }
@@ -61,7 +61,7 @@ const AgentDialog: React.FC<AgentDialogProps> = ({
         return FileText;
       case 'teil3':
         return Users;
-      case 'vollprufung':
+      case 'prufung':
         return GraduationCap;
       default:
         return MessageSquare;
@@ -76,7 +76,7 @@ const AgentDialog: React.FC<AgentDialogProps> = ({
         return 'bg-green-500';
       case 'teil3':
         return 'bg-purple-500';
-      case 'vollprufung':
+      case 'prufung':
         return 'bg-indigo-500';
       default:
         return 'bg-blue-500';
@@ -199,9 +199,9 @@ const AgentDialog: React.FC<AgentDialogProps> = ({
                 Teamarbeit
               </span>
             )}
-            {examPart === 'vollprufung' && (
+            {examPart === 'prufung' && (
               <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium">
-                Vollprüfung
+                Prüfung
               </span>
             )}
           </div>

@@ -8,7 +8,7 @@ import { theme, classes } from '../../lib/theme';
 const ExamPartsSection: React.FC = () => {
   const [dialogState, setDialogState] = useState<{
     isOpen: boolean;
-    examPart: 'teil1' | 'teil2' | 'teil3' | 'vollprufung' | null;
+    examPart: 'teil1' | 'teil2' | 'teil3' | 'prufung' | null;
     title: string;
     description: string;
   }>({
@@ -19,7 +19,7 @@ const ExamPartsSection: React.FC = () => {
   });
 
   const handleOpenDialog = (part: string, title: string, description: string) => {
-    let examPart: 'teil1' | 'teil2' | 'teil3' | 'vollprufung';
+    let examPart: 'teil1' | 'teil2' | 'teil3' | 'prufung';
     switch (part) {
       case 'Teil 1':
         examPart = 'teil1';
@@ -30,8 +30,8 @@ const ExamPartsSection: React.FC = () => {
       case 'Teil 3':
         examPart = 'teil3';
         break;
-      case 'Vollprüfung':
-        examPart = 'vollprufung';
+      case 'Prüfung':
+        examPart = 'prufung';
         break;
       default:
         examPart = 'teil1';
@@ -139,8 +139,8 @@ const ExamPartsSection: React.FC = () => {
       ]
     },
     {
-      part: "Vollprüfung",
-      title: "Komplette FSP-Prüfungssimulation",
+      part: "Prüfung",
+      title: "FSP-Prüfungssimulation",
       subtitle: "Realistische Gesamtprüfung",
       description: "Erleben Sie die vollständige FSP-Prüfung mit allen drei Teilen in einer durchgängigen Simulation. Dieser Agent führt Sie durch Patientengespräche, medizinische Dokumentation und kollegiale Kommunikation.",
       icon: GraduationCap,
