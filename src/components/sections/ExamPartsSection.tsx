@@ -156,7 +156,6 @@ const ExamPartsSection: React.FC = () => {
         "Komplette Prüfungssimulation",
         "Alle drei Prüfungsteile integriert",
         "Zeitmanagement-Training",
-        "Realistische Prüfungsatmosphäre",
         "Umfassendes Leistungsfeedback"
       ],
       skills: [
