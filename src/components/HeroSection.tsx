@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './ui/button';
-import { Play, BookOpen, Users, Target, Award, Clock, Shield, Star, CheckCircle, Zap, GraduationCap } from 'lucide-react';
+import { Play, BookOpen, Users, Target, Award, Clock, Shield, CheckCircle, Zap, GraduationCap } from 'lucide-react';
 import { classes, theme } from '../lib/theme';
 
 const HeroSection: React.FC = () => {
@@ -105,23 +105,6 @@ const HeroSection: React.FC = () => {
                 </Button>
               </div>
 
-              {/* Social Proof */}
-              <div className="flex items-center justify-center lg:justify-start gap-6 text-sm text-blue-100">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-2">
-                    <div className="w-6 h-6 bg-blue-400 rounded-full border-2 border-white"></div>
-                    <div className="w-6 h-6 bg-green-400 rounded-full border-2 border-white"></div>
-                    <div className="w-6 h-6 bg-purple-400 rounded-full border-2 border-white"></div>
-                  </div>
-                  <span>500+ zufriedene Ärzte</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                  <span className="ml-1">4.9/5 Bewertung</span>
-                </div>
-              </div>
             </div>
 
             {/* Right Column - Stats & Visual */}
@@ -181,8 +164,6 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white dark:from-slate-900 to-transparent"></div>
     </section>
   );
 };
