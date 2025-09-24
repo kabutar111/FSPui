@@ -1,10 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MessageSquare, FileText, Users, GraduationCap, Clock, Target, BookOpen, Award, CheckCircle, AlertCircle, Lightbulb, Timer } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import SectionHeading from '../ui/section-heading';
+import AgentDialog from '../ui/agent-dialog';
 import { theme, classes } from '../../lib/theme';
 
 const ExamPartsSection: React.FC = () => {
+  const [dialogState, setDialogState] = useState<{
+    isOpen: boolean;
+    examPart: 'teil1' | 'teil2' | 'teil3' | null;
+    title: string;
+    description: string;
+  }>({
+    isOpen: false,
+    examPart: null,
+    title: '',
+    description: ''
+  });
+
+  const handleOpenDialog = (part: string, title: string, description: string) => {
+    let examPart: 'teil1' | 'teil2' | 'teil3';
+    switch (part) {
+      case 'Teil 1':
+        examPart = 'teil1';
+        break;
+      case 'Teil 2':
+        examPart = 'teil2';
+        break;
+      case 'Teil 3':
+        examPart = 'teil3';
+        break;
+      default:
+        examPart = 'teil1';
+    }
+
+    setDialogState({
+      isOpen: true,
+      examPart,
+      title,
+      description
+    });
+  };
+
+  const handleCloseDialog = () => {
+    setDialogState({
+      isOpen: false,
+      examPart: null,
+      title: '',
+      description: ''
+    });
+  };
+
   const examParts = [
     {
       part: "Teil 1",
@@ -236,13 +282,16 @@ const ExamPartsSection: React.FC = () => {
 
               {/* CTA Button */}
               <div className="pt-4">
-                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
-                  part.colorScheme === 'blue'
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-lg hover:shadow-blue-500/25'
-                    : part.colorScheme === 'green'
-                    ? 'bg-green-600 hover:bg-green-700 text-white hover:shadow-lg hover:shadow-green-500/25'
-                    : 'bg-purple-600 hover:bg-purple-700 text-white hover:shadow-lg hover:shadow-purple-500/25'
-                }`}>
+                <button
+                  onClick={() => handleOpenDialog(part.part, part.title, part.description)}
+                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+                    part.colorScheme === 'blue'
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white hover:shadow-lg hover:shadow-blue-500/25'
+                      : part.colorScheme === 'green'
+                      ? 'bg-green-600 hover:bg-green-700 text-white hover:shadow-lg hover:shadow-green-500/25'
+                      : 'bg-purple-600 hover:bg-purple-700 text-white hover:shadow-lg hover:shadow-purple-500/25'
+                  }`}
+                >
                   Mit Agent üben
                 </button>
               </div>
@@ -333,6 +382,15 @@ const ExamPartsSection: React.FC = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Agent Dialog */}
+      <AgentDialog
+        isOpen={dialogState.isOpen}
+        onClose={handleCloseDialog}
+        examPart={dialogState.examPart || 'teil1'}
+        title={dialogState.title}
+        description={dialogState.description}
+      />
     </section>
   );
 };

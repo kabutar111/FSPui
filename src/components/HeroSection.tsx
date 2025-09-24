@@ -9,13 +9,17 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-5xl mx-auto">
           {/* Main Title */}
-          <h1 className={`${classes.typography.displayLarge} ${classes.text.inverse} mb-6`}>
-            Fachsprachprüfung
-            <span className="block text-blue-300 dark:text-blue-200">FSP/FaMed</span>
+          <h1 className={`${classes.text.inverse} mb-6 leading-tight`}>
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight">
+              Fachsprachprüfung
+            </span>
+            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-300 dark:text-blue-200 mt-2 sm:mt-3">
+              FSP/FaMed
+            </span>
           </h1>
 
           {/* Subtitle */}
-          <p className={`${classes.typography.hero} ${classes.text.inverse} mb-8 max-w-3xl mx-auto opacity-90`}>
+          <p className={`${classes.text.inverse} mb-8 max-w-3xl mx-auto opacity-90 text-base sm:text-lg md:text-xl leading-relaxed px-4 sm:px-0`}>
             Bereiten Sie sich optimal auf Ihre Fachsprachprüfung vor mit KI-gestütztem Training
             und realistischen Prüfungsszenarien.
           </p>
