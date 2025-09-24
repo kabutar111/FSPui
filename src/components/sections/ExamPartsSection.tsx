@@ -147,11 +147,11 @@ const ExamPartsSection: React.FC = () => {
       subtitle: "Realistische Gesamtprüfung",
       description: "Erleben Sie die vollständige FSP-Prüfung mit allen drei Teilen in einer durchgängigen Simulation. Dieser Agent führt Sie durch Patientengespräche, medizinische Dokumentation und kollegiale Kommunikation.",
       icon: GraduationCap,
-      colorScheme: 'indigo' as const,
+      colorScheme: 'orange' as const,
       duration: "75 Minuten",
       weight: "100%",
       difficulty: "Sehr Hoch",
-      badge: { text: "Vollprüfung", color: "indigo" as const },
+      badge: { text: "Vollprüfung", color: "orange" as const },
       features: [
         "Komplette Prüfungssimulation",
         "Alle drei Prüfungsteile integriert",
@@ -215,10 +215,6 @@ const ExamPartsSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
         {examParts.map((part, index) => (
           <Card key={index} className={`${classes.card.glass} group hover:shadow-2xl transition-all duration-500 border-0 relative overflow-hidden`}>
-            {/* Part Number Badge */}
-            <div className="absolute top-4 right-4 bg-white/20 dark:bg-slate-700/50 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center">
-              <span className="text-lg font-bold text-slate-700 dark:text-slate-200">{part.part}</span>
-            </div>
 
             {/* Badge */}
             {part.badge && (
@@ -226,19 +222,24 @@ const ExamPartsSection: React.FC = () => {
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                   part.badge.color === 'red' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300' :
                   part.badge.color === 'yellow' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300' :
-                  part.badge.color === 'indigo' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' :
-                  'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+                  part.badge.color === 'blue' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300' :
+                  part.badge.color === 'green' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' :
+                  part.badge.color === 'purple' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300' :
+                  part.badge.color === 'orange' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300' :
+                  'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'
                 }`}>
                   {part.badge.text}
                 </span>
               </div>
             )}
 
-            <CardHeader className="text-center pb-6 pt-16">
+            <CardHeader className="text-center pb-6 pt-8">
               <div className={`mx-auto w-20 h-20 rounded-3xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg ${
                 part.colorScheme === 'blue' ? 'bg-gradient-to-br from-blue-500 to-blue-600' :
                 part.colorScheme === 'green' ? 'bg-gradient-to-br from-green-500 to-green-600' :
-                'bg-gradient-to-br from-purple-500 to-purple-600'
+                part.colorScheme === 'purple' ? 'bg-gradient-to-br from-purple-500 to-purple-600' :
+                part.colorScheme === 'orange' ? 'bg-gradient-to-br from-orange-500 to-orange-600' :
+                'bg-gradient-to-br from-indigo-500 to-indigo-600'
               }`}>
                 <part.icon className="w-10 h-10 text-white" />
               </div>
